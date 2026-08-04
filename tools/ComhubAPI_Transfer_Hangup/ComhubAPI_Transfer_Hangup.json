@@ -1,0 +1,14 @@
+{
+  "name": "a97ebe3f-13aa-4d41-bf71-d8ef71c3cb82",
+  "displayName": "ComhubAPI_Transfer_Hangup",
+  "description": "This provides tooling for two call environment controls:\n- run_call_hangup: hangs up the call. NEVER HANG UP BEFORE MAKING SURE THE PATIENT wants to close the call.\n- run_call_transfer: Use this to transfer to a",
+  "openApiSpec": {
+    "authentication": {
+      "bearerTokenConfig": {
+        "secretVersionForToken": "projects/44387775421/secrets/Comhub_API_Transfer_Hangup/versions/1"
+      }
+    },
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

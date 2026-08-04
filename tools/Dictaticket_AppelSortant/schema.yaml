@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: Dictaticket Bot API - Outgoing Calls
+  version: 1.1.0
+  description: API for managing the initiation and response flow for outgoing voicebot calls related to patient appointment confirmation.
+servers:
+  - url: https://www.dictaticket.com/api
+    description: Main server for the Dictaticket API
+paths:
+  /bot/outgoinginit:
+    post:
+      summary: Initiate Outgoing Call and Retrieve Patient/Exam Details
+      description: Sends an initial, pre-assigned CallId to retrieve the patient's details and scheduled exam information for the voicebot to initiate the call.
+      operationId: outgoinginit
+      requestBody:
+        description: Payload containing the initial CallId to look up.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingInitRequest'
+      responses:
+        '200':
+          description: Patient and exam details successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutgoingInitResponse'
+        '400':
+          description: Bad Request – Invalid or missing parameters.
+        '404':
+          description: Not Found – No record was found for the provided CallId.
+  /bot/outgoingresponse:
+    post:
+      summary: Submit Patient's Confirmation Response
+      description: Sends the patient's confirmation response ("oui" or "non") back to the system after the outgoing call is completed.
+      operationId: outgoingresponse
+      requestBody:
+        description: Payload containing the CallId and the patient's confirmation response.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingResponseRequest'
+      responses:
+        '200':
+          description: Confirmation response successfully received.
+        '400':
+          description: Bad Request – Invalid or missing parameters or an invalid confirmation value.
+
+components:
+  schemas:
+    OutgoingInitRequest:
+      type: object
+      required:
+        - CallId
+      properties:
+        CallId:
+          type: string
+          description: The unique identifier for the initial call/task session.
+          example: "123er45"
+          
+    OutgoingInitResponse:
+      type: object
+      description: Patient and exam details required for the outgoing call.
+      properties:
+        CallId:
+          type: string
+          description: The unique identifier assigned to the outgoing call session.
+          example: "69a17a582ccb"
+        Client_Name:
+          type: string
+          description: The name of the client/site associated with the patient.
+          example: "institut du sein santa maria nice"
+        Patient_Name:
+          type: string
+          description: The full name of the patient.
+          example: "camila de barros medeiros"
+        Patient_PhoneNumber:
+          type: string
+          description: The patient's phone number to be called (E.164 format recommended).
+          example: "+33767661567"
+        Service_Name:
+          type: string
+          description: The service or department where the exam will take place.
+          example: "sénologie/mammographie"
+        Patient_DateOfBirth:
+          type: string
+          format: date
+          description: The patient's date of birth.
+          example: "1980-01-01"
+        Patient_Prefix:
+          type: string
+          description: The title or prefix of the patient.
+          example: "mme"
+        Exam_Type:
+          type: string
+          description: The type of examination the patient is being called about.
+          example: "consultation"
+        Exam_Date:
+          type: string
+          format: date
+          description: The date of the scheduled exam.
+          example: "2026-03-04"
+        Exam_Time:
+          type: string
+          description: The time of the scheduled exam in 24-hour format.
+          example: "08:30"
+        Adresse1:
+          type: string
+          nullable: true
+          description: The primary address line for the location.
+          example: "123 Avenue de la République"
+        Adresse2:
+          type: string
+          nullable: true
+          description: The secondary address line (e.g., building, floor, apartment).
+          example: "Bâtiment A"
+        CodePostale:
+          type: string
+          nullable: true
+          description: The postal code.
+          example: "06000"
+        Ville:
+          type: string
+          nullable: true
+          description: The city.
+          example: "Nice"
+          
+    OutgoingResponseRequest:
+      type: object
+      required:
+        - CallId
+        - InfoTranscript
+        - Patient_Confirmation
+        - Additional_Info
+      properties:
+        Additional_Info:
+          type: string
+          description: additional information of what the bot has perceived of the call
+          example: "Conversation avec plusieurs erreurs"
+        CallId:
+          type: string
+          description: The unique identifier for the outgoing call session.
+          example: "out068ee4d550f05"
+        InfoTranscript:
+          type: string
+        Patient_Confirmation:
+          type: string
+          description: The patient's response to the confirmation question.
+          example: "1"
+          enum: ["1","2","3","4","5","6","7","8","9","10","11"]

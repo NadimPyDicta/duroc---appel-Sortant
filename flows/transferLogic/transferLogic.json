@@ -1,0 +1,46 @@
+{
+  "name": "3724b700-d9d5-4d15-bc3c-709a0b9f4597",
+  "displayName": "transferLogic",
+  "transitionRoutes": [ {
+    "intent": "loopt",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Veuillez Patienter" ]
+        },
+        "languageCode": "fr"
+      } ]
+    },
+    "targetPage": "Current Page",
+    "name": "54fc2667-92b2-4549-842b-89e389448117"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "8a448983-2507-45a5-a7b1-c1b835b7d815"
+  }, {
+    "targetFlow": "transferLogic",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "e87acce2-5877-48a1-8ad6-41e4c997cf43"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC"
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "customConfigKey": "cfe42363-ce6e-476b-b161-738d2e2d5615",
+    "languageCode": "fr"
+  } ]
+}

@@ -1,6 +1,16 @@
 {
   "name": "00000000-0000-0000-0000-000000000000",
   "displayName": "Default Welcome Intent",
+  "parameters": [ {
+    "id": "any",
+    "entityType": "@sys.any"
+  }, {
+    "id": "person",
+    "entityType": "@sys.person"
+  }, {
+    "id": "any1",
+    "entityType": "@sys.any"
+  } ],
   "priority": 500000,
-  "numTrainingPhrases": 13
+  "numTrainingPhrases": 2
 }

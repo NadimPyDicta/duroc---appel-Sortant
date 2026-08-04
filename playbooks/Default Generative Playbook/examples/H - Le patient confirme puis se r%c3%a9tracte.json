@@ -1,0 +1,85 @@
+{
+  "name": "d5d6bae0-9766-4327-8bdd-4194bbc83511",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "out069146fe60eaa"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "out069146fe60eaa",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-11-13",
+          "Exam_Time": "10:15",
+          "Exam_Type": "Scanner Cervico-Thoracique",
+          "Patient_DateOfBirth": "1966-05-12",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33755523741",
+          "Patient_Prefix": "MME",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner cervico-thoracique prévu le treize novembre deux mille vingt-cinq à dix heures quinze à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Je ne suis pas [Patient_Name]."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je suis désolée, cet appel est réservé à la personne ayant le rendez-vous. Veuillez ne pas en tenir compte. Merci et bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Après une première confirmation, l'interlocuteur indique finalement ne pas être la patiente attendue.",
+          "CallId": "out069146fe60eaa",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Oui. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner cervico-thoracique prévu le treize novembre deux mille vingt-cinq à dix heures quinze à [adresse] ? Patient: Je ne suis pas [Patient_Name]. Agent: Je suis désolée, cet appel est réservé à la personne ayant le rendez-vous. Veuillez ne pas en tenir compte. Merci et bonne journée.",
+          "Patient_Confirmation": "10"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "L'interlocuteur confirme puis indique ne pas être la patiente, l'appel est fermé avec Patient_Confirmation=10.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "H - Le patient confirme puis se rétracte",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 253,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

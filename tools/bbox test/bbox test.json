@@ -1,0 +1,8 @@
+{
+  "name": "f8410fdb-5943-4051-86bf-bf9ee4ba61ff",
+  "displayName": "bbox test",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

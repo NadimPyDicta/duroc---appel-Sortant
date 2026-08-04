@@ -1,0 +1,8 @@
+{
+  "name": "700d6c67-c296-482e-9ed9-a3b3b81c05d6",
+  "displayName": "hosted_testing",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

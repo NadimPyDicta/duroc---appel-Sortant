@@ -1,0 +1,76 @@
+{
+  "name": "6f011522-3380-4090-93ce-10dc4e350c78",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "",
+          "Client_Name": "Bachaumont",
+          "CodePostale": "",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "dupont dupont",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "madame",
+          "Service_Name": "Clinique Bachaumont",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de la Clinique Bachaumont. Est-ce bien Madame Dupont Dupont ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui, je suis Karl Roue."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je suis désolée, cet appel est réservé à la personne ayant le rendez-vous. Veuillez ne pas en tenir compte. Merci et bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "L'appelé indique ne pas être la patiente attendue et ne précise aucune relation avec elle.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de la Clinique Bachaumont. Est-ce bien Madame Dupont Dupont ? Patient: Oui, je suis Karl Roue. Agent: Je suis désolée, cet appel est réservé à la personne ayant le rendez-vous. Veuillez ne pas en tenir compte. Merci et bonne journée.",
+          "Patient_Confirmation": "10"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "L'appelé indique ne pas être la patiente attendue, l'appel est fermé avec Patient_Confirmation=10.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "H - Appelé dit un prénom incorrect",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 204,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

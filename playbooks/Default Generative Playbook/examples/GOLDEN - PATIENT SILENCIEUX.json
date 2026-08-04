@@ -1,0 +1,80 @@
+{
+  "name": "cb8bce5a-395f-464d-9153-8e7f71af2391",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "[Exam_Date]",
+          "Exam_Time": "10:00",
+          "Exam_Type": "[Exam_Type]",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "[number]",
+          "Patient_Prefix": "",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Silence"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Êtes-vous toujours là ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Silence"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je ne vous entends pas. Nous vous appelions concernant votre rendez-vous médical à [Client_Name]. Merci de nous rappeler. Au revoir."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Silence persistant après deux tentatives de prise de contact.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Silence Agent: Êtes-vous toujours là ? Patient: Silence Agent: Je ne vous entends pas. Nous vous appelions concernant votre rendez-vous médical à [Client_Name]. Merci de nous rappeler. Au revoir.",
+          "Patient_Confirmation": "5"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient reste silencieux après deux tentatives, l'appel est fermé avec Patient_Confirmation=5.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "GOLDEN - PATIENT SILENCIEUX",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 185,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

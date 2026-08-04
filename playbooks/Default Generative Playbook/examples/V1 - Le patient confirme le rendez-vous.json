@@ -1,0 +1,129 @@
+{
+  "name": "2e99b1a1-6e99-428d-97cd-040e8ae27fae",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"out068ee4d550f05\",\n}"
+      },
+      "outputActionParameters": {
+        "404": "error error"
+      }
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"out068ee4d550f05\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "out068ee4d550f05",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "[date de l'examen]",
+          "Exam_Time": "[temps de l'examen]",
+          "Exam_Type": "[type d'examen]",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "[numero du patient]",
+          "Patient_Prefix": "M",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien Monsieur [prénom et nom du patient] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Pardon, je n'ai pas compris."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bien sûr. Puis-je confirmer que vous êtes bien Monsieur [prénom et nom du patient] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "C'est de quelle clinique ?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Appel de [Client_Name] concernant un rendez-vous. Êtes-vous bien Monsieur [prénom et nom du patient] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Ah ok, oui c'est bien moi."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à [temps de l'examen] à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Non non, tu vas confirmer, tu vas raccrocher."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je comprends que vous souhaitez annuler votre rendez-vous, est-ce bien cela ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Est-ce que je dois venir à jeun pour mon rendez-vous ?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je peux vous mettre en relation avec l'un de nos agents pour répondre à cette question. Souhaitez-vous être transféré ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Ah non, je veux confirmer mon rendez-vous."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait, souhaitez-vous confirmer votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à [temps de l'examen] à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Merci, votre rendez-vous est bien confirmé. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient confirme finalement son rendez-vous après une question annexe.",
+          "CallId": "out068ee4d550f05",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien Monsieur [prénom et nom du patient] ? Patient: Pardon, je n'ai pas compris. Agent: Bien sûr. Puis-je confirmer que vous êtes bien Monsieur [prénom et nom du patient] ? Patient: C'est de quelle clinique ? Agent: Appel de [Client_Name] concernant un rendez-vous. Êtes-vous bien Monsieur [prénom et nom du patient] ? Patient: Ah ok, oui c'est bien moi. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à [temps de l'examen] à [adresse] ? Patient: Non non, tu vas confirmer, tu vas raccrocher. Agent: Je comprends que vous souhaitez annuler votre rendez-vous, est-ce bien cela ? Patient: Est-ce que je dois venir à jeun pour mon rendez-vous ? Agent: Je peux vous mettre en relation avec l'un de nos agents pour répondre à cette question. Souhaitez-vous être transféré ? Patient: Ah non, je veux confirmer mon rendez-vous. Agent: Parfait, souhaitez-vous confirmer votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à [temps de l'examen] à [adresse] ? Patient: Oui. Agent: Merci, votre rendez-vous est bien confirmé. Bonne journée.",
+          "Patient_Confirmation": "1"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient confirme finalement le rendez-vous avec Patient_Confirmation=1.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "V1 - Le patient confirme le rendez-vous",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 503,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

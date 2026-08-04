@@ -51,8 +51,8 @@
   "llmModelSettings": {
     "model": "gemini-2.5-flash",
     "parameters": {
-      "temperature": 0.89999998,
-      "inputTokenLimit": "INPUT_TOKEN_LIMIT_SHORT",
+      "temperature": 0.30000001,
+      "inputTokenLimit": "INPUT_TOKEN_LIMIT_MEDIUM",
       "outputTokenLimit": "OUTPUT_TOKEN_LIMIT_SHORT"
     }
   },

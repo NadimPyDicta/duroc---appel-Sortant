@@ -1,0 +1,10 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "allo",
+      "parameterId": "any"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "fr"
+  } ]
+}

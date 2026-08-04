@@ -1,13 +1,70 @@
 {
   "displayName": "dev - (Duroc) C. de RDV Sortant",
   "defaultLanguageCode": "fr",
-  "timeZone": "Europe/Madrid",
+  "timeZone": "Europe/Kaliningrad",
+  "enableLogging": true,
   "projectNumber": 44387775421,
+  "speechToTextSettings": {
+  
+  },
+  "enableStackdriverLogging": true,
   "advancedSettings": {
+    "enabled": true,
+    "audioExportGcsDestination": {
+      "uri": "gs://audio-of-calls"
+    },
+    "speechSettings": {
+      "endpointerSensitivity": 94,
+      "noSpeechTimeout": {
+        "seconds": 6
+      },
+      "useTimeoutBasedEndpointing": true,
+      "models": [ {
+        "key": "fr",
+        "value": "telephony_short"
+      } ],
+      "overrideRequestSpeechModel": true
+    },
+    "playbackInterruptionSettings": {
+      "allowPlaybackInterruption": true
+    },
     "loggingSettings": {
+      "enableStackdriverLogging": true,
+      "enableInteractionLogging": true
+    },
+    "speechAdaptationSettings": {
     
     }
   },
   "dataResidencyOption": "DATA_RESIDENCY_IN_USE_COMPLIANT",
-  "startPlaybook": "Default Generative Playbook"
+  "speakerIdSettings": {
+  
+  },
+  "textToSpeechSettings": {
+    "synthesizeSpeechConfigs": [ {
+      "key": "fr",
+      "value": {
+        "speakingRate": 0.95999999999999996,
+        "pitch": 2,
+        "voice": {
+          "name": "fr-FR-Neural2-F",
+          "ssmlGender": "SSML_VOICE_GENDER_FEMALE"
+        }
+      }
+    } ],
+    "overrideRequestSynthesizeSpeechConfig": true
+  },
+  "genAppBuilderSettings": {
+  
+  },
+  "duplexSettings": {
+  
+  },
+  "answerFeedbackSettings": {
+  
+  },
+  "startPlaybook": "Default Generative Playbook",
+  "webClientSettings": {
+    "boxBorderRadius": "0"
+  }
 }

@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: Dictaticket Bot API - Outgoing Calls
+  version: 1.2.0
+  description: >
+    API for managing the initiation, response, and callback flows for voicebot 
+    calls related to patient appointment confirmation.
+servers:
+  - url: http://nadimchendy.com:8000/api
+    description: Production server
+
+paths:
+  /bot/outgoingresponse:
+    post:
+      summary: Submit Patient's Confirmation Response
+      description: Sends the patient's confirmation response ("oui" or "non") back to the system after the outgoing call is completed.
+      operationId: outgoingresponse_h
+      requestBody:
+        description: Payload containing the CallId and the patient's confirmation response.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingResponseRequest'
+      responses:
+        '200':
+          description: Confirmation response successfully received.
+        '400':
+          description: Invalid request payload.
+
+  /bot/rappelpatientinit:
+    post:
+      summary: Initiate Patient Callback (Inbound)
+      description: >
+        Initiates a session when a patient calls back the bot's number. 
+        Returns the patient and exam details required to conduct the call.
+      operationId: rappelpatientinit_h
+      requestBody:
+        description: Payload containing call details and patient phone number for the inbound callback.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RappelPatientInitRequest'
+      responses:
+        '200':
+          description: Callback session successfully initiated. Returns full patient/exam context.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutgoingInitResponse'
+        '404':
+          description: CallId or Patient records not found.
+
+components:
+  schemas:
+    OutgoingInitResponse:
+      type: object
+      description: Full context of the patient and appointment.
+      properties:
+        CallId:
+          type: string
+          description: The unique identifier for the call session.
+          example: "out069301969098f"
+        Client_Name:
+          type: string
+          description: The name of the clinic or site.
+          example: "Riviera"
+        Patient_Name:
+          type: string
+          description: The full name of the patient.
+          example: "karinella lima"
+        Patient_PhoneNumber:
+          type: string
+          description: The patient's phone number.
+          example: "+33611111111"
+        Service_Name:
+          type: string
+          description: The specific hospital service or department.
+          example: "Centre hospitalier Arnault Tzanck"
+        Patient_DateOfBirth:
+          type: string
+          format: date
+          example: "1980-01-01"
+        Patient_Prefix:
+          type: string
+          description: Honorific used for the patient (e.g., monsieur, madame).
+          example: "monsieur"
+        Exam_Type:
+          type: string
+          description: The type of examination.
+          example: "Scanner Abdominal"
+        Exam_Date:
+          type: string
+          format: date
+          description: The date of the scheduled exam.
+          example: "2025-10-09"
+        Exam_Time:
+          type: string
+          description: The time of the scheduled exam.
+          example: "10:00"
+
+    OutgoingResponseRequest:
+      type: object
+      required:
+        - CallId
+        - InfoTranscript
+        - Patient_Confirmation
+        - Additional_Info
+      properties:
+        CallId:
+          type: string
+          description: The unique identifier for the call session.
+          example: "out068ee4d550f05"
+        InfoTranscript:
+          type: string
+          description: The raw transcript or summary of the conversation.
+        Patient_Confirmation:
+          type: string
+          description: The outcome of the confirmation (mapped to specific status codes).
+          example: "oui"
+          enum: ["1", "2", "3", "4", "5", "6", "7", "8"]
+        Additional_Info:
+          type: string
+          description: AI/Bot observations regarding the call quality or errors.
+          example: "Conversation avec plusieurs erreurs"
+
+    RappelPatientInitRequest:
+      type: object
+      required:
+        - callId
+        - Called_SDA
+        - Patient_PhoneNumber
+      properties:
+        callId:
+          type: string
+          description: The ID associated with the original call or task.
+          example: "out069133b9d01222"
+        Called_SDA:
+          type: string
+          description: The bot phone number (SDA) the patient dialed.
+          enum: ["0973057534"]
+        Patient_PhoneNumber:
+          type: string
+          description: The phone number of the patient calling back.
+          example: "+33978271606"
+
+    OutgoingInitRequest:
+      type: object
+      required:
+        - CallId
+      properties:
+        CallId:
+          type: string
+          description: The unique identifier for the call initiation request.
+          example: "123er45"

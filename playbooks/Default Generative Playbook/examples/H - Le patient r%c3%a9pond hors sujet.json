@@ -1,0 +1,88 @@
+{
+  "name": "2d6c04f2-b337-48b4-a4c9-55010e64dfe8",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "madame",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Allô allô ?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour. Puis-je confirmer que vous êtes bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Non non non tu vas confirmer tu vas raccrocher."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je suis désolée, faute de confirmation, je vais vous transférer vers un agent. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Identité non confirmée après deux tentatives, transfert vers un agent humain.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Allô allô ? Agent: Bonjour. Puis-je confirmer que vous êtes bien [Patient_Prefix] [Patient_Name] ? Patient: Non non non tu vas confirmer tu vas raccrocher. Agent: Je suis désolée, faute de confirmation, je vais vous transférer vers un agent. Bonne journée.",
+          "Patient_Confirmation": "6"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  }, {
+    "flowTransition": {
+      "flow": "transferLogic"
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "L'identité n'est pas confirmée après deux tentatives, l'appel est transféré avec Patient_Confirmation=6.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "H - Le patient répond hors sujet",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 219,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

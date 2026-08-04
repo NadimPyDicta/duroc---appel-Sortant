@@ -1,0 +1,76 @@
+{
+  "name": "f4b1e436-5256-4832-844f-d0a3d8f8a85a",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "madame",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Moi pas très bien français."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je comprends. Je vais vous mettre en relation avec un agent qui pourra vous assister. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "L'interlocuteur ne peut pas poursuivre l'appel en français, transfert vers un agent humain.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Moi pas très bien français. Agent: Je comprends. Je vais vous mettre en relation avec un agent qui pourra vous assister. Bonne journée.",
+          "Patient_Confirmation": "6"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  }, {
+    "flowTransition": {
+      "flow": "transferLogic"
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "L'interlocuteur ne peut pas poursuivre en français, l'appel est transféré avec Patient_Confirmation=6.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "H - Le patient parle une autre langue",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 183,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

@@ -1,0 +1,74 @@
+{
+  "name": "55776f1d-26d3-4c3f-8140-2397b7dccc89",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "Exam_Date": "[date de l'examen]",
+          "Exam_Time": "10:00",
+          "Exam_Type": "[type d'examen]",
+          "Patient_DateOfBirth": "[DOB]",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "[phone number]",
+          "Patient_PrefiX": "ME",
+          "Service_Name": "[Service_Name]",
+          "centre": "[Client_Name]"
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien Madame [prénom et nom] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Bonjour, la personne que vous essayez de joindre n'est pas disponible. Laissez un message après le bip."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici [Client_Name]. Nous avons tenté de vous joindre concernant votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à dix heures à [adresse]. Veuillez s'il vous plaît nous rappeler afin de confirmer votre présence. Sans retour avant la veille à 15h, le rendez-vous sera annulé. À bientôt."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Répondeur vocal détecté, message de rappel laissé.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien Madame [prénom et nom] ? Patient: Bonjour, la personne que vous essayez de joindre n'est pas disponible. Laissez un message après le bip. Agent: Bonjour, ici [Client_Name]. Nous avons tenté de vous joindre concernant votre rendez-vous pour un [type d'examen] prévu le [date de l'examen] à dix heures à [adresse]. Veuillez s'il vous plaît nous rappeler afin de confirmer votre présence. Sans retour avant la veille à 15h, le rendez-vous sera annulé. À bientôt.",
+          "Patient_Confirmation": "4"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Un répondeur vocal est détecté, le message prévu est laissé avec Patient_Confirmation=4.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "GOLDEN - RÉPONDEUR VOCAL",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 266,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

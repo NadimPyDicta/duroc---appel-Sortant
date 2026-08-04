@@ -1,0 +1,70 @@
+{
+  "name": "aff14a08-fb9e-4c73-ad35-965a3010383c",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"[callid]\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "",
+          "Service_Name": "",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Ah je vais vous rappeler après."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Très bien, nous restons à votre disposition. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient indique qu'il va rappeler lui-même.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Ah je vais vous rappeler après. Agent: Très bien, nous restons à votre disposition. Bonne journée.",
+          "Patient_Confirmation": "9"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient indique qu'il va rappeler lui-même avec Patient_Confirmation=9.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "Tool [9] - Le patient va rappeler",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 157,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

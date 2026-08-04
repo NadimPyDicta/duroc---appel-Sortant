@@ -1,0 +1,93 @@
+{
+  "name": "3f6a886d-51b6-4751-a198-36cd8b7b61da",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "out0691705da0be0"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "out0691705da0be0",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-11-14",
+          "Exam_Time": "10:00",
+          "Exam_Type": "scanner cervico-thoracique",
+          "Patient_DateOfBirth": "1994-12-14",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33978271292",
+          "Patient_Prefix": "m",
+          "Service_Name": "[Service_Name]",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Allô."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour. Puis-je confirmer que vous êtes bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui, c'est sa fille."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer son rendez-vous pour un scanner cervico-thoracique prévu le quatorze novembre deux mille vingt-cinq à dix heures à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Merci, votre rendez-vous est bien confirmé. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "La fille du patient confirme le rendez-vous.",
+          "CallId": "out0691705da0be0",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Allô. Agent: Bonjour. Puis-je confirmer que vous êtes bien [Patient_Prefix] [Patient_Name] ? Patient: Oui, c'est sa fille. Agent: Parfait. Souhaitez-vous confirmer son rendez-vous pour un scanner cervico-thoracique prévu le quatorze novembre deux mille vingt-cinq à dix heures à [adresse] ? Patient: Oui. Agent: Merci, votre rendez-vous est bien confirmé. Bonne journée.",
+          "Patient_Confirmation": "1"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "La fille du patient confirme le rendez-vous avec Patient_Confirmation=1.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "H - Personne tierce confirme",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 233,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

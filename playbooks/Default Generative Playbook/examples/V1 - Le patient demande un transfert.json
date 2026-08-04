@@ -1,0 +1,97 @@
+{
+  "name": "9aa8b1de-bc60-44e6-a2fa-33f673f25bfc",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"[callid]\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "[Exam_Date]",
+          "Exam_Time": "[Exam_Time]",
+          "Exam_Type": "[Exam_Type]",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "[numero du patient]",
+          "Patient_Prefix": "ME",
+          "Service_Name": "",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de la [Client_Name]. Est-ce bien Madame [prénom et nom du patient] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Bonjour, ça va ?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je vais bien merci. Suis-je bien en ligne avec Madame [prénom et nom du patient] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui, c'est moi."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un [Exam_Type] prévu le [Exam_Date] à [Exam_Time] à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Je ne suis pas sûre que je vais venir."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Dans ce cas, souhaitez-vous le reporter ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Je préfère parler à quelqu'un."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Nous vous prions de patienter, vous allez être mis en relation avec l'un de nos agents. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient n'est pas sûr de venir et demande à parler à un agent.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de la [Client_Name]. Est-ce bien Madame [prénom et nom du patient] ? Patient: Bonjour, ça va ? Agent: Je vais bien merci. Suis-je bien en ligne avec Madame [prénom et nom du patient] ? Patient: Oui, c'est moi. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un [Exam_Type] prévu le [Exam_Date] à [Exam_Time] à [adresse] ? Patient: Je ne suis pas sûre que je vais venir. Agent: Dans ce cas, souhaitez-vous le reporter ? Patient: Je préfère parler à quelqu'un. Agent: Nous vous prions de patienter, vous allez être mis en relation avec l'un de nos agents. Bonne journée.",
+          "Patient_Confirmation": "6"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  }, {
+    "flowTransition": {
+      "flow": "transferLogic"
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient n'est pas sûr de venir et demande à parler à un agent, transfert avec Patient_Confirmation=6.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "V1 - Le patient demande un transfert",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 328,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

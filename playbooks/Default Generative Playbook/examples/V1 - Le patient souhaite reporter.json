@@ -1,0 +1,90 @@
+{
+  "name": "87efba0b-fc66-43ad-927c-cec20651a60a",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"[callid]\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "[Adresse1]",
+          "Adresse2": "[Adresse2]",
+          "CallId": "[callid]",
+          "Client_Name": "Riviera",
+          "CodePostale": "[CodePostale]",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "Dupont Dupont",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "ME",
+          "Service_Name": "Clinique Riviera",
+          "Ville": "[Ville]"
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de la Clinique Riviera. Est-ce bien Madame Dupont Dupont ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner abdominal prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Non."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Dans ce cas, souhaitez-vous le reporter ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Très bien, afin de procéder à la modification de votre rendez-vous, je vous transfère vers une secrétaire médicale qui pourra vous assister. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient souhaite reporter son rendez-vous.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de la Clinique Riviera. Est-ce bien Madame Dupont Dupont ? Patient: Oui. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner abdominal prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ? Patient: Non. Agent: Dans ce cas, souhaitez-vous le reporter ? Patient: Oui. Agent: Très bien, afin de procéder à la modification de votre rendez-vous, je vous transfère vers une secrétaire médicale qui pourra vous assister. Bonne journée.",
+          "Patient_Confirmation": "3"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  }, {
+    "flowTransition": {
+      "flow": "transferLogic"
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient souhaite reporter son rendez-vous, transfert avec Patient_Confirmation=3.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "V1 - Le patient souhaite reporter",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 259,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

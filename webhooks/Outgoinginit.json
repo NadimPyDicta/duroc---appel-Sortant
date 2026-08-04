@@ -1,0 +1,48 @@
+{
+  "name": "0ee3dddf-85bd-4841-a2bf-9b2642dee2fc",
+  "displayName": "Outgoinginit",
+  "genericWebService": {
+    "uri": "https://www.dictaticket.com/api/bot/outgoinginit",
+    "requestHeaders": [ {
+      "key": "Authorization",
+      "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZlcnRleCIsIm5iZiI6MTc1MjQ4NTYyMiwiZXhwIjoyMDk5NjQwODIyLCJpYXQiOjE3NTI0ODU2MjIsImlzcyI6Imh0dHBzOi8vd3d3LmRpY3RhdGlja2V0LmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmRpY3RhdGlja2V0LmNvbSJ9.zIcrfCRTmNK8Di3o92y8AiOs8fF84cBoEyVvCqgiGuA"
+    } ],
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n    \"CallId\": \"$session.params.callid\"\n}",
+    "parameterMapping": [ {
+      "key": "CallId",
+      "value": "$.CallId"
+    }, {
+      "key": "Client_Name",
+      "value": "$.Client_Name"
+    }, {
+      "key": "Exam_Date",
+      "value": "$.Exam_Date"
+    }, {
+      "key": "Exam_Time",
+      "value": "$.Exam_Time"
+    }, {
+      "key": "Exam_Type",
+      "value": "$.Exam_Type"
+    }, {
+      "key": "Patient_DateOfBirth",
+      "value": "$.Patient_DateOfBirth"
+    }, {
+      "key": "Patient_Name",
+      "value": "$.Patient_Name"
+    }, {
+      "key": "Patient_PhoneNumber",
+      "value": "$.Patient_PhoneNumber"
+    }, {
+      "key": "Patient_Prefix",
+      "value": "$.Patient_Prefix"
+    }, {
+      "key": "Service_Name",
+      "value": "$.Service_Name"
+    } ]
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

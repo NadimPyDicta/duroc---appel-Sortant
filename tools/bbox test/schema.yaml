@@ -1,0 +1,116 @@
+openapi: 3.0.3
+info:
+  title: Local Sheet Proxy (Mocked)
+  version: 1.0.0
+  description: Returns a static patient record response for all log-call events.
+servers:
+  - url: https://faa2cbd6e267.ngrok-free.app
+paths:
+  /log-call:
+    post:
+      summary: Receive call and return a static patient record
+      operationId: logCall
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundCall'
+            example:
+              Exam_Type: "Scanner Abdominal"
+              number_to_transfer: "0183353098"
+              Patient_Name: "Myriam zariffe"
+              Exam_Time: "10:00"
+              Patient_PhoneNumber: "+33611111111"
+              Exam_Date: "2025-10-09"
+              Client_Name: "Riviera"
+              CallId: "out068ee4d550f05"
+      responses:
+        '200':
+          description: Static patient record response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaticResponse'
+              example:
+                Patient_FulleName: "Marie-Elisabeth Durand"
+                Patient_Birthday: "1985-04-10"
+                Services:
+                  - ServiceHybride: 0
+                    Name: "Centre Hospitalier de Grasse"
+                    ID: 132
+                  - Name: "Clinique Palais"
+                    ID: 133
+                    ServiceHybride: 0
+                ClientHybride: 0
+                Client: "riviera-palaistest"
+                InfoSave: 1
+                Patient_Found: 1
+                CallId: "out068ee4d550f05"
+        '422':
+          description: Validation Error
+
+components:
+  schemas:
+    InboundCall:
+      type: object
+      required: [Exam_Type, number_to_transfer, Patient_Name, Exam_Time, Patient_PhoneNumber, Exam_Date, Client_Name, CallId]
+      properties:
+        Exam_Type:
+          type: string
+          description: Type of examination.
+        number_to_transfer:
+          type: string
+          description: Phone number to transfer to.
+        Patient_Name:
+          type: string
+          description: Name of the patient.
+        Exam_Time:
+          type: string
+          format: time
+          description: Time of the examination.
+        Patient_PhoneNumber:
+          type: string
+          description: Patient's phone number.
+        Exam_Date:
+          type: string
+          format: date
+          description: Date of the examination.
+        Client_Name:
+          type: string
+          description: Name of the client/clinic.
+        CallId:
+          type: string
+          description: Unique call session id.
+
+    ServiceItem:
+      type: object
+      properties:
+        ServiceHybride:
+          type: integer
+        Name:
+          type: string
+        ID:
+          type: integer
+
+    StaticResponse:
+      type: object
+      properties:
+        Patient_FulleName:
+          type: string
+        Patient_Birthday:
+          type: string
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceItem'
+        ClientHybride:
+          type: integer
+        Client:
+          type: string
+        InfoSave:
+          type: integer
+        Patient_Found:
+          type: integer
+        CallId:
+          type: string

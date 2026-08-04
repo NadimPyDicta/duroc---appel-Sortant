@@ -5,40 +5,42 @@
   "transitionRoutes": [ {
     "intent": "Default Welcome Intent",
     "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "Salut !", "Bonjour !", "Salutations !", "Bienvenue !" ]
-        },
-        "languageCode": "fr"
-      } ]
+    
     },
-    "name": "dc7f0b89-0a01-4aef-8fe1-782bf994ae63"
+    "targetPage": "First Utterance",
+    "name": "942afec7-1472-49b5-8b49-8fcdb19630a7"
   } ],
   "eventHandlers": [ {
+    "targetPage": "First Utterance",
     "event": "sys.no-match-default",
     "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "J'ai du mal à comprendre cette question.", "J'ai mal compris votre demande.", "Je n'ai pas saisi ce que vous avez dit.", "Je crois que je ne vous suis pas.", "Je ne comprends pas de quoi vous me parlez." ]
-        },
-        "languageCode": "fr"
-      } ]
+    
     },
-    "name": "455db379-ce87-4aee-bf1c-90291465b423"
+    "name": "b1ef11fd-f0c9-42c2-a24f-b6f5d8da2f35"
   }, {
+    "targetPage": "First Utterance",
     "event": "sys.no-input-default",
     "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "J'ai du mal à comprendre cette question.", "J'ai mal compris votre demande.", "Je n'ai pas saisi ce que vous avez dit.", "Je crois que je ne vous suis pas.", "Je ne comprends pas de quoi vous me parlez." ]
-        },
-        "languageCode": "fr"
-      } ]
+    
     },
-    "name": "ba2746fb-41e2-449b-a88a-28af33a057a2"
+    "name": "43cda19b-55fc-4e14-aa79-0268da822385"
+  }, {
+    "targetPage": "First Utterance",
+    "event": "Welcome",
+    "triggerFulfillment": {
+    
+    },
+    "name": "b782d932-10bb-433e-92a5-7b4e6ff7e774"
   } ],
   "nluSettings": {
-    "modelType": "MODEL_TYPE_ADVANCED",
-    "classificationThreshold": 0.30000001
-  }
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_MANUAL"
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_MANUAL",
+    "languageCode": "fr"
+  } ]
 }

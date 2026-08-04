@@ -1,0 +1,74 @@
+{
+  "name": "ace5b8fa-67fd-4af0-9987-6907ca80255a",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"[callid]\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner sans IV",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33611111111",
+          "Service_Name": "[Service_Name]",
+          "number_to_transfer_to": "[numberTransfer]"
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner sans I.V. prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Ah je ne suis pas en mesure de parler maintenant."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je comprends. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient demande à raccrocher ou ne peut pas parler maintenant.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Oui. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner sans I.V. prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ? Patient: Ah je ne suis pas en mesure de parler maintenant. Agent: Je comprends. Bonne journée.",
+          "Patient_Confirmation": "7"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient ne peut pas parler maintenant, l'appel est fermé avec Patient_Confirmation=7.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "Tool [7] - Le patient ne peut pas parler maintenant",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 212,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

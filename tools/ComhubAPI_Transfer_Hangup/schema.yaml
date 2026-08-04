@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: TeamBox ComHub API
+  version: 1.0.0
+servers:
+  - url: https://dictalive.clients.teambox.fr/comhubproxy
+    description: Production Server
+paths:
+  /call/hangup:
+    post:
+      tags:
+        - Call
+      summary: Hang up a call
+      description: >
+        Terminates an active call.
+        This operation internally sends `{"rq": "call/hangup", "callid": "<ID>"}` to the ComHub proxy.
+      operationId: run_call_hangup
+      requestBody:
+        description: The call identifier of the ongoing call to be terminated.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HangupRequest'
+      responses:
+        '200':
+          description: Call successfully hung up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComHubResponse'
+        '400':
+          description: Bad Request — Missing or invalid parameters.
+        '401':
+          description: Unauthorized — Invalid bearer token.
+        '404':
+          description: Not Found — Unknown call ID.
+
+  # --- NEW TRANSFER OPERATION (POST with JSON Body) ---
+  /call/transfer:
+    post:
+      tags:
+        - Call
+      operationId: toolcallDONOTUSE
+      requestBody:
+        description: Parameters required.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRequest'
+      responses:
+        '200':
+          description:  success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComHubResponse'
+        '400':
+          description: Bad Request — Missing or invalid parameters.
+        '401':
+          description: Unauthorized — Invalid bearer token.
+        '404':
+          description: Not Found — Unknown call ID.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token issued by dictalive.clients.teambox.fr to authorize API access.
+
+  schemas:
+    # -----------------
+    # Request Schemas
+    # -----------------
+    HangupRequest:
+      type: object
+      required:
+        - rq
+        - callid
+      properties:
+        rq:
+          type: string
+          enum: ["call/hangup"]
+          description: Operation code specifying a hang-up action.
+          example: "call/hangup"
+        callid:
+          type: string
+          description: Unique identifier of the call to terminate.
+          example: "A12345"
+      additionalProperties: false
+
+    TransferRequest:
+      type: object
+      required:
+        - rq
+        - callid
+        - calledNumber
+      properties:
+        rq:
+          type: string
+          enum: ["call/transfer"]
+          example: "call/transfer"
+        callid:
+          type: string
+          description: Unique identifier of the call.
+          example: "A12345"
+        calledNumber:
+          type: string
+          description: Destination phone number (E.164 format preferred).
+          example: "0757934145"
+      additionalProperties: false
+
+    # -----------------
+    # Response Schemas
+    # -----------------
+    ComHubResponse:
+      type: object
+      properties:
+        error:
+          type: integer
+          description: Numeric error code (0 indicates success).
+          example: 0
+        message:
+          type: string
+          description: Human-readable message or null if no error.
+          example: "OK"
+        data:
+          type: object
+          description: Response payload containing additional info (e.g., call ID).
+          example:
+            callid: "A12345"

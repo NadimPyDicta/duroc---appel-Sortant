@@ -1,0 +1,28 @@
+{
+  "name": "44d83641-bc5f-405d-b7f1-dc5ec9548513",
+  "displayName": "p1",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "playAudio": {
+        "audioUri": "gs://audio-of-calls/waiting transfer.wav"
+      },
+      "languageCode": "fr"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "loopt",
+    "triggerFulfillment": {
+      "messages": [ {
+        "playAudio": {
+          "audioUri": "gs://audio-of-calls/waiting transfer.wav"
+        },
+        "languageCode": "fr"
+      } ]
+    },
+    "targetPage": "Current Page",
+    "name": "3593f205-e845-40bd-aab7-0fe11680d957"
+  } ]
+}

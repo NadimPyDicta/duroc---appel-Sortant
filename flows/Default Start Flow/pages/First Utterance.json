@@ -1,0 +1,23 @@
+{
+  "name": "1f1d60d2-b59d-4400-b559-c49b7837b215",
+  "displayName": "First Utterance",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Bonjour, ici la clinique $session.params.Client_Name. Je suis Axel votre agent virtuel de confirmation de rendez-vous. Je vous prie, dans la mesure du possible, de répondre par un oui ou non à mes questions. Suis-je bien en ligne avec Monsieur Arsene Jacquot ?" ]
+      },
+      "languageCode": "fr"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+    
+    },
+    "name": "24cd3fe9-2a27-4a93-9f7d-c3e9b2bc98bd",
+    "targetPlaybook": "Default Generative Playbook"
+  } ]
+}

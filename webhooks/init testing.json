@@ -1,0 +1,35 @@
+{
+  "name": "a146a960-1e33-47b8-afa9-8646fb4977e9",
+  "displayName": "init testing",
+  "genericWebService": {
+    "uri": "https://1384e930b2e2.ngrok-free.app/log-call",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"callid\": \"\",\n  \"session_path\": \"\"\n}",
+    "parameterMapping": [ {
+      "key": "CallId",
+      "value": "$.CallId"
+    }, {
+      "key": "Exam_Date",
+      "value": "$.Exam_Date"
+    }, {
+      "key": "Exam_Time",
+      "value": "$.Exam_Time"
+    }, {
+      "key": "Patient_Name",
+      "value": "$.Patient_Name"
+    }, {
+      "key": "Patient_PhoneNumber",
+      "value": "$.Patient_PhoneNumber"
+    }, {
+      "key": "Patient_PrefiX",
+      "value": "$.Patient_PrefiX"
+    }, {
+      "key": "Service_Name",
+      "value": "$.Service_Name"
+    } ]
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

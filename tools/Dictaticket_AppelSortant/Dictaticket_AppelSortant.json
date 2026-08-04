@@ -1,0 +1,14 @@
+{
+  "name": "88e90d21-c4ee-463a-97c9-12cc8e7ac5f5",
+  "displayName": "Dictaticket_AppelSortant",
+  "description": "Initiate an Outgoing Call: Look up and retrieve the patient and appointment details for a specified call ID, which the voicebot will use to start a conversation with the patient.\n\nReport the Outcome: Receive the patient's confirmation response (\"oui\" or \"non\") for their scheduled appointment after the voicebot completes the call.\n\nEndpoint: /bot/outgoinginit (POST)\nSummary: Initiate Outgoing Call and Retrieve Patient/Exam Details\n\nThis endpoint is the first step in the outgoing call process. The calling system (e.g., the voicebot platform) sends a pre-assigned CallId in the request body. Dictaticket uses this ID to retrieve and return all necessary details about the scheduled appointment, including the Patient_Name, Patient_PhoneNumber, Exam_Type, Exam_Date, and Exam_Time. This information allows the voicebot to properly address the patient and state the purpose of the call.\n\nRequest Payload: Requires a JSON object with the unique CallId.\nSuccess Response (200): Returns a JSON object containing the call-specific details.\n\nEndpoint: /bot/outgoingresponse (POST)\nSummary: Submit Patient's Confirmation Response\n\nThis endpoint is used after the voicebot has completed the outgoing call and successfully elicited a confirmation response from the patient. The calling system sends the CallId along with the patient's confirmation decision in the Patient_Confirmation field, which must be either oui (yes) or non (no). This finalizes the outcome of the automated call within the Dictaticket system.\n\nRequest Payload: Requires a JSON object with the CallId and the Patient_Confirmation (which must be 'oui' or 'non').\nSuccess Response (200): Acknowledges successful receipt of the confirmation response.",
+  "openApiSpec": {
+    "authentication": {
+      "bearerTokenConfig": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZlcnRleCIsIm5iZiI6MTc1MjQ4NTYyMiwiZXhwIjoyMDk5NjQwODIyLCJpYXQiOjE3NTI0ODU2MjIsImlzcyI6Imh0dHBzOi8vd3d3LmRpY3RhdGlja2V0LmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmRpY3RhdGlja2V0LmNvbSJ9.zIcrfCRTmNK8Di3o92y8AiOs8fF84cBoEyVvCqgiGuA"
+      }
+    },
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

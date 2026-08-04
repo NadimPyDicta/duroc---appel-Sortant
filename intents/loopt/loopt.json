@@ -1,0 +1,10 @@
+{
+  "name": "ba1e556d-4f13-435d-919e-2ba2d8dc85d1",
+  "displayName": "loopt",
+  "parameters": [ {
+    "id": "any",
+    "entityType": "@sys.any"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 1
+}

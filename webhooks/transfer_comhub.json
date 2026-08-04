@@ -1,0 +1,17 @@
+{
+  "name": "9cc386d6-acbb-4c3f-9e70-7f0d9b2e42b7",
+  "displayName": "transfer_comhub",
+  "genericWebService": {
+    "uri": "https://dictalive.clients.teambox.fr/comhubproxy",
+    "requestHeaders": [ {
+      "key": "Authorization",
+      "value": "Bearer GAz4gLPfXMHRgn4YmKizguGPeZcoJ1T+"
+    } ],
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"rq\": \"call/transfer\",\n  \"callid\": \"$session.params.callid\",\n  \"calledNumber\": \"0183353098\"\n}"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

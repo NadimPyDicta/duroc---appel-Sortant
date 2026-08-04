@@ -1,0 +1,82 @@
+{
+  "name": "ce34bb13-8529-46ef-a9e7-0051534696d8",
+  "actions": [ {
+    "event": {
+      "event": "Welcome"
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "400": "{\n  [\n    \"incorrect\"\n  ]\n}"
+      }
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": {
+          "CallId": "[callid]"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "CallId": "",
+          "Client_Name": "",
+          "Exam_Date": "",
+          "Exam_Time": "",
+          "Exam_Type": "",
+          "Patient_DateOfBirth": "",
+          "Patient_Name": "",
+          "Patient_PhoneNumber": "",
+          "Patient_Prefix": "",
+          "Service_Name": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Je n'ai pas pu récupérer les informations nécessaires. Je vais vous transférer vers un agent. Bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Les informations nécessaires n'ont pas été reçues au début de l'appel.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Je n'ai pas pu récupérer les informations nécessaires. Je vais vous transférer vers un agent. Bonne journée.",
+          "Patient_Confirmation": "6"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  }, {
+    "flowTransition": {
+      "flow": "transferLogic"
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Les informations de session sont absentes, l'appel est transféré avec Patient_Confirmation=6.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "GOLDEN - PAS D'INFOS AU DÉBUT DE L'APPEL",
+  "retrievalStrategy": "STATIC",
+  "tokenCount": 151,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}

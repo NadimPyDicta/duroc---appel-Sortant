@@ -1,0 +1,78 @@
+{
+  "name": "da8f8959-7d8f-4ba1-a003-66a52e8aa533",
+  "actions": [ {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoinginit",
+      "inputActionParameters": {
+        "requestBody": "{\n  \"CallId\": \"[callid]\",\n}"
+      },
+      "outputActionParameters": {
+        "200": {
+          "Adresse1": "",
+          "Adresse2": "",
+          "CallId": "[callid]",
+          "Client_Name": "[Client_Name]",
+          "CodePostale": "",
+          "Exam_Date": "2025-10-09",
+          "Exam_Time": "10:00",
+          "Exam_Type": "Scanner Abdominal",
+          "Patient_Name": "[Patient_Name]",
+          "Patient_PhoneNumber": "+33611111111",
+          "Patient_Prefix": "",
+          "Service_Name": "",
+          "Ville": ""
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Oui."
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner abdominal prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "Ah pouvez-vous me rappeler s'il vous plaît ?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Très bien, nous allons vous rappeler. Je vous souhaite une bonne journée."
+    }
+  }, {
+    "toolUse": {
+      "tool": "Dictaticket_AppelSortant",
+      "action": "outgoingresponse",
+      "inputActionParameters": {
+        "requestBody": {
+          "Additional_Info": "Le patient demande à être rappelé.",
+          "CallId": "[callid]",
+          "InfoTranscript": "Agent: Bonjour, ici Julie l'assistante virtuelle de [Client_Name]. Est-ce bien [Patient_Prefix] [Patient_Name] ? Patient: Oui. Agent: Parfait. Souhaitez-vous confirmer votre rendez-vous pour un scanner abdominal prévu le neuf octobre deux mille vingt-cinq à dix heures à [adresse] ? Patient: Ah pouvez-vous me rappeler s'il vous plaît ? Agent: Très bien, nous allons vous rappeler. Je vous souhaite une bonne journée.",
+          "Patient_Confirmation": "8"
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookOutput": {
+    "executionSummary": "Le patient demande à être rappelé avec Patient_Confirmation=8.",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "Tool [8] - Le patient demande à être rappelé",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 219,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "fr"
+}
