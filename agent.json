@@ -1,0 +1,13 @@
+{
+  "displayName": "dev - (Duroc) C. de RDV Sortant",
+  "defaultLanguageCode": "fr",
+  "timeZone": "Europe/Madrid",
+  "projectNumber": 44387775421,
+  "advancedSettings": {
+    "loggingSettings": {
+    
+    }
+  },
+  "dataResidencyOption": "DATA_RESIDENCY_IN_USE_COMPLIANT",
+  "startPlaybook": "Default Generative Playbook"
+}
